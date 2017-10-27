@@ -1,8 +1,12 @@
 
 
 ### Stack
-* RN( using create-react-native-app cli)
-* Github GraphQL API 
-* React Router 4 for RN
-* Redux
+* ReactNative using `create-react-native-app` cli
+* Github GraphQL API v4
+* React navigation for routing
+
+### How to run
+`yarn` to install all npm packages
+then
+`yarn start` to run
 
