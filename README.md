@@ -10,3 +10,12 @@
 then
 `yarn start` to run
 
+### Views
+#### Home page
+![Home Page](/screenshots/home.jpg?raw=true "Home Page")
+
+#### ReposList page
+![Fetching](/screenshots/fetching.jpg?raw=true "Repos Page fetching repos")
+
+#### ReposList page
+![Error Fetching](/screenshots/error_fetching.jpg?raw=true "Repos Page error fetching")
