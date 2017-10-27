@@ -15,7 +15,7 @@ then
 ![Home Page](/screenshots/home.jpg?raw=true "Home Page")
 
 #### ReposList page
-![Fetching](/screenshots/fethching.jpg?raw=true "Repos Page fetching repos")
+![Fetching](/screenshots/fetching.jpg?raw=true "Repos Page fetching repos")
 
 #### ReposList page
 ![Error Fetching](/screenshots/error_fetching.jpg?raw=true "Repos Page error fetching")
