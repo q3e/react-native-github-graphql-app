@@ -21,6 +21,8 @@
   "dependencies": {
     "apollo-cache-inmemory": "^1.0.0",
     "apollo-client": "^2.0.1",
+    "apollo-link": "^1.0.0",
+    "apollo-link-error": "^1.0.0",
     "apollo-link-http": "^1.0.0",
     "expo": "^21.0.0",
     "graphql": "^0.11.7",
