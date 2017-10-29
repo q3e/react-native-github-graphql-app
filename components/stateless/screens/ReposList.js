@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, FlatList  } from 'react-native';
+import { Text, FlatList, View } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -18,9 +18,28 @@ const ReposList = ({ data: { loading, error, search, networkStatus, refetch }, s
           refreshing={networkStatus === 4}
           onRefresh={() => refetch()}
           onEndReachedThreshold={0.5}
-          renderItem={({item}) =>
-            // <Text style={{ fontSize: '14'}}>{item.node.owner.login}</Text>
-            <Text style={{ fontSize: 20}}>{item.node.nameWithOwner}</Text>
+          renderItem={({item}) =>(
+            <View style={{flex: 1, flexDirection: 'row', height: 80, padding: 5, margin: 5, backgroundColor: 'skyblue'}}>
+              <View style={{flex: 1}} >
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                  <View style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 20 }}>{item.node.nameWithOwner}</Text>
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={{ color: 'blue' }}>repo contributors</Text>
+                  </View>
+                </View>
+                <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'grey' }}>
+                  <View style={{flex:1}}>
+                    <Text style={{ fontSize: 14, left: 5 }}>owner: @{item.node.owner.login}</Text>
+                  </View>
+                  <View style={{ flex:1}}>
+                    <Text style={{ color: 'blue' }}>view profile</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          )
           }
         />
       )
