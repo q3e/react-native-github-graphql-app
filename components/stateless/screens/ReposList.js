@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 
 // The data prop, which is provided by the wrapper below contains,
 // a `loading` key while the query is in flight and posts when ready
-const ReposList = ({ data: { loading, error, search }, searchQuery}) => {
+const ReposList = ({ data: { loading, error, search, networkStatus, refetch }, searchQuery}) => {
   if(!error){
     if(loading){
       return <Text>fetching posts... </Text>
@@ -15,7 +15,13 @@ const ReposList = ({ data: { loading, error, search }, searchQuery}) => {
       return (
         <FlatList
           data={responseData}
-          renderItem={({item}) => <Text>{item.node.nameWithOwner}</Text>}
+          refreshing={networkStatus === 4}
+          onRefresh={() => refetch()}
+          onEndReachedThreshold={0.5}
+          renderItem={({item}) =>
+            // <Text style={{ fontSize: '14'}}>{item.node.owner.login}</Text>
+            <Text style={{ fontSize: 20}}>{item.node.nameWithOwner}</Text>
+          }
         />
       )
     }
