@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
+export let SEARCH_QUERY = ''
 class Home extends React.Component {
   static navigationOptions = {
     title: 'Aurity Challenge'
@@ -17,11 +18,11 @@ class Home extends React.Component {
 
         <View style={{flex: 4, backgroundColor: 'grey'}} >
           <View style={[{flex:1}, styles.container]}>
-          {/* <TextInput
+          <TextInput
             style={{height: 40, width: 150}}
             placeholder="Search Repos"
-            onChangeText={text => text}
-          /> */}
+            onChangeText={(text) => SEARCH_QUERY = text}
+          />
           <Button 
             onPress={() => navigate('ReposList')}
             title="Search"
