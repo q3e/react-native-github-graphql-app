@@ -5,11 +5,13 @@ import gql from 'graphql-tag';
 
 // The data prop, which is provided by the wrapper below contains,
 // a `loading` key while the query is in flight and posts when ready
-const ReposList = ({ data: { loading, error, search }}) => {
+const ReposList = ({ data: { loading, error, search }, searchQuery}) => {
   if(!error){
     if(loading){
       return <Text>fetching posts... </Text>
     }else {
+      const responseData = search.edges
+      console.log(searchQuery)
       return (
         <FlatList
           data={responseData}
