@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, FlatList  } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 // The data prop, which is provided by the wrapper below contains,
 // a `loading` key while the query is in flight and posts when ready
-const ReposList = ({ data }) => {
-  console.log(data)
-  if(!data.error){
-    if(data.loading){
+const ReposList = ({ data: { loading, error, search }}) => {
+  if(!error){
+    if(loading){
       return <Text>fetching posts... </Text>
-    }else return <Text> fetching post sucess</Text>
+    }else {
+      return (
+        <FlatList
+          data={responseData}
+          renderItem={({item}) => <Text>{item.node.nameWithOwner}</Text>}
+        />
+      )
+    }
   }else <Text> Error Fetching posts</Text>
 }
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
-// available on the `data` prop of the wrapped component (PostList here)
+// available on the `data` prop of the wrapped component (ReposList here)
 export default graphql(gql`{
   search(type: REPOSITORY, query: "react", first: 20) {
     edges {
