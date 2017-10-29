@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { SearchBar } from 'react-native-elements'
 
 export let SEARCH_QUERY = ''
 class Home extends React.Component {
@@ -17,11 +18,11 @@ class Home extends React.Component {
         </View>
 
         <View style={{flex: 4, backgroundColor: 'grey'}} >
-          <View style={[{flex:1}, styles.container]}>
-          <TextInput
-            style={{height: 40, width: 150}}
-            placeholder="Search Repos"
+          <View style={{flex:1}}>
+          <SearchBar
+            lightTheme
             onChangeText={(text) => SEARCH_QUERY = text}
+            placeholder='Search Github'
           />
           <Button 
             onPress={() => navigate('ReposList')}
