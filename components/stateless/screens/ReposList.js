@@ -3,9 +3,14 @@ import { Text, FlatList, View } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
+
 // The data prop, which is provided by the wrapper below contains,
-// a `loading` key while the query is in flight and posts when ready
-const ReposList = ({ data: { loading, error, search, networkStatus, refetch }, searchQuery}) => {
+// react-navigation also provides a 'navigation' prop
+const ReposList = ({
+  data: { loading, error, search, networkStatus, refetch },
+  searchQuery,
+  navigation:{ navigate }
+}) => {
   if(!error){
     if(loading){
       return <Text>fetching posts... </Text>
@@ -19,22 +24,22 @@ const ReposList = ({ data: { loading, error, search, networkStatus, refetch }, s
           onRefresh={() => refetch()}
           onEndReachedThreshold={0.5}
           renderItem={({item}) =>(
-            <View style={{flex: 1, flexDirection: 'row', height: 80, padding: 5, margin: 5, backgroundColor: 'skyblue'}}>
+            <View style={{flex: 1, flexDirection: 'row', margin: 5 }}>
               <View style={{flex: 1}} >
-                <View style={{ flex: 1, flexDirection: 'row' }}>
+                <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'lightyellow', padding: 10 }}>
                   <View style={{ flex: 1 }}>
                     <Text style={{ fontSize: 20 }}>{item.node.nameWithOwner}</Text>
                   </View>
                   <View style={{ flex: 1 }}>
-                    <Text style={{ color: 'blue' }}>repo contributors</Text>
+                    <Text style={{ color: 'blue' }} onPress={() => navigate('ContributorsList')}>view contributors</Text>
                   </View>
                 </View>
-                <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'grey' }}>
+                <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'grey', padding: 10 }}>
                   <View style={{flex:1}}>
                     <Text style={{ fontSize: 14, left: 5 }}>owner: @{item.node.owner.login}</Text>
                   </View>
                   <View style={{ flex:1}}>
-                    <Text style={{ color: 'blue' }}>view profile</Text>
+                    <Text style={{ color: 'blue' }} onPress={() => navigate('OwnerProfile', {username: item.node.owner.login} )}>view profile</Text>
                   </View>
                 </View>
               </View>
