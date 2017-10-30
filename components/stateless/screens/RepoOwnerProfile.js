@@ -17,7 +17,14 @@ return <View><Text> Profile @{username}</Text></View>
 }
 
 const getUserProfile = gql`
-  query getUserProfile($login:String!){
+  query getUserProfile($login: String!){
+    organization(login: $login){
+      name
+      repositories{
+        totalCount
+      }
+      avatarUrl
+    }
     user(login: $login) {
       name
       bio
