@@ -4,30 +4,27 @@ import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 
 const RepoOwnerProfile = ({
-  // data: { loading, error, networkStatus, user: {
-  //   name, bio, avatarUrl, repositories, followers, following, starredRepositories
-  //   }
-  // },
-  data,
+  data: { loading, error, networkStatus, user },
   navigation: {
     state: {
       params: { username }
     }
   }
 }) => {
-  if (!data.error) {
-    if (data.loading) {
+  if (!error) {
+    if (loading) {
       return <Text>fetching github user...</Text>
     } else {
-      const { name, bio, avatarUrl, repositories, followers, following, starredRepositories} = data.user
-      console.log(data)
+      const { name, bio, avatarUrl, repositories, followers, following, starredRepositories} = user
       return (
         <ScrollView>
           <View style={{ flex: 1}}>
-            <Image
-              style={{flex: 2}}
-              source={{uri: avatarUrl}}
-            />
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+              <Image
+                style={{width: 100, height: 100}}
+                source={{uri: avatarUrl}}
+              />
+            </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
               <View style={{flex: 1}}>
                 <Text>Bio: {bio}</Text>
