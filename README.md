@@ -9,6 +9,9 @@
 `yarn` to install all npm packages
 then
 `yarn start` to run
+* install the [expo android app to test your app](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en) 
+* follow instructions on your console when you ran `yarn start`
+* you should be able to view and test your app. Enjoy the seemless [hot reloading in react-native](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html)
 
 ### Views
 #### Home page
