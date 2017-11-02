@@ -72,9 +72,14 @@ const getUserProfile = gql`
 
 // Execute a GraphQL query and makes the results
 // available on the `data` prop of our wrapped component
-export default graphql(getUserProfile, {
-    // 'username' is available to us on the navigation prop --> see our router navigation options
-    // then make `graphql` compute query variable from that prop
-    options: ({ navigation: { state: { params: { username }}} }) => ({ variables: { login: username } }), 
+// docs: https://www.apollographql.com/docs/react/basics/setup.html#graphql-config
+export default graphql(
+  // the GraphQL document
+  getUserProfile,
+  // the config object
+  {
+    // compute options from props - query variable computed from the navigation prop
+    options: ({ navigation: { state: { params: { username }}} }) => ({ variables: { login: username } }),
     notifyOnNetworkStatusChange: true
-})(RepoOwnerProfile)
+  }
+)(RepoOwnerProfile)
