@@ -17,10 +17,10 @@ then
 #### Home page
 ![Home Page](/screenshots/home.jpg?raw=true "Home Page")
 
-#### ReposList page
+#### Fetching Page
 ![Fetching](/screenshots/fetching.jpg?raw=true "fetching")
 
-#### ReposList page
+#### Error page
 ![Error Fetching](/screenshots/error_fetching.jpg?raw=true "error fetching")
 
 #### Repos Search Results
