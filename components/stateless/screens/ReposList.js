@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Text, FlatList, View } from 'react-native';
 import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
-
+import queries from '../../../github-graphql.queries'
 
 // The data prop, which is provided by the wrapper below contains,
 // react-navigation also provides a 'navigation' prop
@@ -52,26 +51,11 @@ const ReposList = ({
   }else <Text> Error Fetching posts</Text>
 }
 
-const searchRepos = gql`
-  query searchRepos($query: String!) {
-    search(type: REPOSITORY, query: $query, first: 100) {
-      edges {
-        node {
-          ... on Repository {
-            nameWithOwner
-            owner {
-              login
-            }
-          }
-        }
-      }
-    }
-  }
-`
-// The `graphql` wrapper executes a GraphQL query and makes the results
-// available on the `data` prop of the wrapped component (ReposList here)
-export default graphql(searchRepos, {
+export default graphql(
+  queries.fetchRepos,
+  {
     options: ({ searchQuery }) => ({ variables: { query: searchQuery } }), // compute query variable from prop
     notifyOnNetworkStatusChange: true
-})(ReposList)
+  }
+)(ReposList)
 
