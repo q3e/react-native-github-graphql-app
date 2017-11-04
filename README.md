@@ -15,13 +15,20 @@ then
 
 ### Views
 #### Home page
-![Home Page](/screenshots/home.jpg?raw=true "Home Page")
+![Home Page](/screenshots/home.png?raw=true "Home Page")
 
-#### ReposList page
+#### loadin screen
 ![Fetching](/screenshots/fetching.jpg?raw=true "fetching")
 
-#### ReposList page
+#### loading error screen
 ![Error Fetching](/screenshots/error_fetching.jpg?raw=true "error fetching")
 
 #### Repos Search Results
-![Error Fetching](/screenshots/repo_search_result.jpg?raw=true "Repos Search Result")
+![Error Fetching](/screenshots/repo_search_result.png?raw=true "Repos Search Result")
+
+### Github username types
+#### Organization-user profile
+![Organization Profile](/screenshots/repo_owner_organization.png?raw=true "Organization profile")
+
+#### User-user profile
+![User Profile](/screenshots/repo_owner_user.png?raw=true "User profile")
