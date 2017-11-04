@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, StatusBar } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 
 export let SEARCH_QUERY = ''
@@ -7,6 +7,7 @@ const Home = ({ navigation: { navigate }}) => {
   console.log('Home rendered!!')
   return (
     <View style={{flex: 1}}>
+    <StatusBar hidden />
         <View style={[{flex: 3, backgroundColor: 'lightblue'}, styles.container]}>
         <Text>Aurity Code Challenge</Text>
         <Text>Github Search App.</Text>
