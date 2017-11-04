@@ -17,10 +17,11 @@ then
 #### Home page
 ![Home Page](/screenshots/home.png?raw=true "Home Page")
 
-#### loadin screen
+#### loading screen
 ![Fetching](/screenshots/fetching.jpg?raw=true "fetching")
 
-#### loading error screen
+#### loading error
+
 ![Error Fetching](/screenshots/error_fetching.jpg?raw=true "error fetching")
 
 #### Repos Search Results
