@@ -38,7 +38,7 @@ const ReposList = ({
                     <Text style={{ fontSize: 14, left: 5 }}>owner: @{item.node.owner.login}</Text>
                   </View>
                   <View style={{ flex:1}}>
-                    <Text style={{ color: 'blue' }} onPress={() => navigate('OwnerProfile', {username: item.node.owner.login} )}>view profile</Text>
+                    <Text style={{ color: 'blue' }}onPress={() => navigate('OwnerProfile', {username: item.node.owner.login, typeOfUser: item.node.owner.__typename} )}>view profile</Text>
                   </View>
                 </View>
               </View>

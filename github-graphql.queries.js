@@ -27,13 +27,13 @@ const queries = {
   fetchOrg: gql `
     query fetchOrg($login: String!){
       organization(login:$login){
-      name
-      repositories{
-        totalCount
-      }
-      description
-      members{
-        totalCount
+        name
+        repositories{
+          totalCount
+        }
+        description
+        members{
+          totalCount
       }
     }
   }`,
@@ -47,6 +47,7 @@ const queries = {
             nameWithOwner
             owner {
               login
+              __typename
             }
           }
         }
