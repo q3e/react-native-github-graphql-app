@@ -18,6 +18,7 @@ const ReposList = ({
       console.log(searchQuery) // did we need to pass props :(
       return (
         <FlatList
+          keyExtractor={(item, index) => index}
           data={responseData}
           refreshing={networkStatus === 4}
           onRefresh={() => refetch()}
