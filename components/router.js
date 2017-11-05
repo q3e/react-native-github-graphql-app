@@ -3,7 +3,7 @@ import {StackNavigator, navigationOptions} from 'react-navigation'
 import Home from './stateless/screens/Home'
 import ReposList from './stateless/screens/ReposList'
 import ContributorsList from './stateless/screens/ContributorsList'
-import RepoOwnerProfile from './stateless/screens/repoOwner-profile/RepoOwnerProfile'
+import RepoOwnerProfile from './stateless/screens/repoOwner/RepoOwnerProfile'
 import { SEARCH_QUERY } from './stateless/screens/Home'
 
 const Router = StackNavigator({

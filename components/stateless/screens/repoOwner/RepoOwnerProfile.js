@@ -39,4 +39,4 @@ const UserProfile = graphql(
     }
   )(UserProfileComponent)
 
-export default RepoOwnerProfile   
+export default RepoOwnerProfile
